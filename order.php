@@ -8,13 +8,12 @@
 <body>
     <h1>Sistema de Pedidos</h1>
     <h2> Resultados do Pedido </h2>
-
     <?php
     $tireqty = $_POST['tireqty'];
     $oilqty = $_POST['oilqty'];
     $sparkqty = $_POST['sparkqty'];
     echo '<p>Ordem processada às ';
-    echo date('H:i, jS F Y');
+    echo date('H:i, jS M Y');
     echo '</p>';
     echo '<p>Seu pedido é como segue: </p>';
     echo htmlspecialchars($tireqty) . ' pneus<br />';
@@ -31,10 +30,9 @@
         + $oilqty * OILPRICE
         + $sparkqty * SPARKPRICE;
     echo 'Subtotal: $' . number_format($totalamount, 2) . '<br />';
-    $taxrate = 0.10;  // local sales tax is 10%
+    $taxrate = 0.10;
     $totalamount = $totalamount * (1 + $taxrate);
     echo 'Total incluindo impostos: $' . number_format($totalamount, 2) . '<br />';
-    
     ?>
 </body>
 
