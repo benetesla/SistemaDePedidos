@@ -2,12 +2,12 @@
 
 <head>
     <title>Sistema de Pedidos</title>
-    <link rel="stylesheet" href="./css/styles.css" type="text/css" />
-</head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
 
 <body>
     <h1>Sistema de Pedidos</h1>
-    <h2> Resultados do Pedido </h2>
+    <h2>Seu pedido foi processado</h2>
     <?php
     $tireqty = $_POST['tireqty'];
     $oilqty = $_POST['oilqty'];
@@ -16,9 +16,12 @@
     echo date('H:i, jS M Y');
     echo '</p>';
     echo '<p>Seu pedido é como segue: </p>';
+    echo '<p>';
     echo htmlspecialchars($tireqty) . ' pneus<br />';
     echo htmlspecialchars($oilqty) . ' litros de óleo<br />';
     echo htmlspecialchars($sparkqty) . ' velas de ignição<br />';
+    echo '</p>';
+    echo '<h3>Resumo do pedido';
     $totalqty = 0;
     $totalqty = $tireqty + $oilqty + $sparkqty;
     echo 'Items ordered: ' . $totalqty . '<br />';
@@ -26,6 +29,8 @@
     define('TIREPRICE', 100);
     define('OILPRICE', 10);
     define('SPARKPRICE', 4);
+   
+   
     $totalamount = $tireqty * TIREPRICE
         + $oilqty * OILPRICE
         + $sparkqty * SPARKPRICE;
@@ -33,6 +38,7 @@
     $taxrate = 0.10;
     $totalamount = $totalamount * (1 + $taxrate);
     echo 'Total incluindo impostos: $' . number_format($totalamount, 2) . '<br />';
+    echo '</h3>';
     ?>
 </body>
 
