@@ -12,33 +12,24 @@
     $tireqty = $_POST['tireqty'];
     $oilqty = $_POST['oilqty'];
     $sparkqty = $_POST['sparkqty'];
-    echo '<div class="pedidoCard">';
-
-    echo '<p>Ordem processada às ';
-    echo date('H:i, jS M Y');
-    echo '</p>';
-    echo '<p>Seu pedido é como segue: </p>';
-    echo '<p>';
-    echo htmlspecialchars($tireqty) . ' pneus<br />';
-    echo htmlspecialchars($oilqty) . ' litros de óleo<br />';
-    echo htmlspecialchars($sparkqty) . ' velas de ignição<br />';
-    echo '</p>';
-    echo '</div>';
-    echo '<p>Resumo do pedido <br />';
+    $adress = $_POST['adress'];
+   
     $totalqty = 0;
     $totalqty = $tireqty + $oilqty + $sparkqty;
-    echo '<details>Items do pedido: ' . $totalqty . '<br />';
+    echo "<p>Itens pedidos: $totalqty</p>";
     $totalamount = 0.00;
     define('TIREPRICE', 100);
     define('OILPRICE', 10);
     define('SPARKPRICE', 4);
-    $totalamount = $tireqty * TIREPRICE + $oilqty * OILPRICE + $sparkqty * SPARKPRICE;
-    echo 'Subtotal: R$' . number_format($totalamount, 2) . '<br />';
-    $taxrate = 0.10;
+    $totalamount = $tireqty * TIREPRICE
+        + $oilqty * OILPRICE
+        + $sparkqty * SPARKPRICE;
+    echo "<p>Valor total: R$".number_format($totalamount,2)."</p>";
+    $taxrate = 0.10; 
     $totalamount = $totalamount * (1 + $taxrate);
-    echo 'Total incluindo impostos: R$' . number_format($totalamount, 2) . '<br />';
-    echo '</p>';
-    echo '</details>';
+    echo "<p>Incluindo o imposto de R$".number_format($totalamount,2)."</p>";
+    echo "<p>Endereço de entrega: $adress</p>";
+    
     ?>
 </body>
 
