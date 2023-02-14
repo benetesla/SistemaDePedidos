@@ -9,6 +9,7 @@
     <h1>Sistema de Pedidos</h1>
  
     <?php
+   
     echo "<div class='container'>";
     if (empty($_POST['tireqty']) && empty($_POST['oilqty']) && empty($_POST['sparkqty'])) {
         echo "<p>Você não selecionou nenhum item.</p>";
@@ -24,6 +25,7 @@
     $sparkqty = $_POST['sparkqty'];
     $adress = $_POST['adress'];
     $find = $_POST['find'];
+  
 
     $totalqty = 0;
     $totalqty = $tireqty + $oilqty + $sparkqty;
@@ -76,6 +78,12 @@
             Outro
             </p>";
             break;
+    }
+
+    @ $fp = fopen("./orders/orders.txt", 'ab');
+    if (!$fp) {
+        echo "<p><strong>Seu pedido não pode ser processado no momento. Tente novamente mais tarde.</strong></p></div>";
+        exit;
     }
     echo "<p>Endereço de entrega: $adress</p>";
     echo "</div>";

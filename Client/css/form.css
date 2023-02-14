@@ -6,7 +6,7 @@ h1{
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #f8aeae;
+    background-color: #f17676;
     padding: 10px;
     border-radius: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -32,7 +32,7 @@ table {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 50%;
-    box-shadow: #d9dd00 0px 0px 10px 0px;
+    background-color: aquamarine;
 }
 
 tr,
@@ -63,7 +63,7 @@ input {
     border: none;
     align-items: center;
     justify-content: center;
-
+    background-color: #d9dd00;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-weight: bold;
