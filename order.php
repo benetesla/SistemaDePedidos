@@ -47,6 +47,7 @@
     } elseif ($tireqty >= 150) {
         $discount = 20;
     }
+    
     echo "<p>Incluindo o imposto de R$" . number_format($totalamount, 2) . "</p>";
     echo "<p>Desconto: $discount%</p>";
     $totalamount = $totalamount * (1 - $discount / 100);
