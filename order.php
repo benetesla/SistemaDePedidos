@@ -22,8 +22,9 @@
     $oilqty = $_POST['oilqty'];
     $sparkqty = $_POST['sparkqty'];
     $adress = $_POST['adress'];
+    $find = $_POST['find'];
+    
     $totalqty = 0;
-   
     $totalqty = $tireqty + $oilqty + $sparkqty;
     echo "<p>Itens pedidos: $totalqty</p>";
     $totalamount = 0.00;
@@ -47,11 +48,35 @@
     } elseif ($tireqty >= 150) {
         $discount = 20;
     }
-    
+echo "<p> Voce encontrou a loja por: </p>";
+    switch ($find) {
+        case "a":
+            echo "<p>
+            Amigo 
+            </p>";
+            break;
+        case "b":
+            echo "<p>
+            Google
+            </p>";
+            break;
+        case "c":
+            echo "<p>
+            Anuncio de TV
+            </p>";
+            break;
+        default:
+            echo "<p>
+            Outro
+            </p>";
+            break;
+    }
     echo "<p>Incluindo o imposto de R$" . number_format($totalamount, 2) . "</p>";
     echo "<p>Desconto: $discount%</p>";
     $totalamount = $totalamount * (1 - $discount / 100);
     echo "<p>Valor total: R$" . number_format($totalamount, 2) . "</p>";
+
+
     echo "<p>Endereço de entrega: $adress</p>";
 
     ?>
