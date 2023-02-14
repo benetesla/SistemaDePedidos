@@ -9,6 +9,11 @@
     <h1>Sistema de Pedidos</h1>
     <h2>Seu pedido foi processado</h2>
     <?php
+    
+    if (empty($_POST['tireqty']) && empty($_POST['oilqty']) && empty($_POST['sparkqty'])) {
+        echo "<p>Você não selecionou nenhum item.</p>";
+        exit;
+    }
     $tireqty = $_POST['tireqty'];
     $oilqty = $_POST['oilqty'];
     $sparkqty = $_POST['sparkqty'];
