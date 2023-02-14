@@ -9,16 +9,19 @@
     <h1>Sistema de Pedidos</h1>
     <h2>Seu pedido foi processado</h2>
     <?php
-    
     if (empty($_POST['tireqty']) && empty($_POST['oilqty']) && empty($_POST['sparkqty'])) {
         echo "<p>Você não selecionou nenhum item.</p>";
         exit;
+    } elseif (empty($_POST['adress'])) {
+        echo "<p>Você não informou o endereço de entrega.</p>";
+        exit;
+    } else {
+        echo "<p>Seu pedido foi processado.</p>";
     }
     $tireqty = $_POST['tireqty'];
     $oilqty = $_POST['oilqty'];
     $sparkqty = $_POST['sparkqty'];
     $adress = $_POST['adress'];
-   
     $totalqty = 0;
     $totalqty = $tireqty + $oilqty + $sparkqty;
     echo "<p>Itens pedidos: $totalqty</p>";
@@ -29,12 +32,12 @@
     $totalamount = $tireqty * TIREPRICE
         + $oilqty * OILPRICE
         + $sparkqty * SPARKPRICE;
-    echo "<p>Valor total: R$".number_format($totalamount,2)."</p>";
-    $taxrate = 0.10; 
+    echo "<p>Valor total: R$" . number_format($totalamount, 2) . "</p>";
+    $taxrate = 0.10;
     $totalamount = $totalamount * (1 + $taxrate);
-    echo "<p>Incluindo o imposto de R$".number_format($totalamount,2)."</p>";
+    echo "<p>Incluindo o imposto de R$" . number_format($totalamount, 2) . "</p>";
     echo "<p>Endereço de entrega: $adress</p>";
-    
+
     ?>
 </body>
 
