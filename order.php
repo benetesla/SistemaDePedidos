@@ -23,6 +23,7 @@
     $sparkqty = $_POST['sparkqty'];
     $adress = $_POST['adress'];
     $totalqty = 0;
+   
     $totalqty = $tireqty + $oilqty + $sparkqty;
     echo "<p>Itens pedidos: $totalqty</p>";
     $totalamount = 0.00;
@@ -35,7 +36,21 @@
     echo "<p>Valor total: R$" . number_format($totalamount, 2) . "</p>";
     $taxrate = 0.10;
     $totalamount = $totalamount * (1 + $taxrate);
+    if ($tireqty < 10) {
+        $discount = 0;
+    } elseif ($tireqty >= 10 && $tireqty <= 49) {
+        $discount = 5;
+    } elseif ($tireqty >= 50 && $tireqty <= 99) {
+        $discount = 10;
+    } elseif ($tireqty >= 100 && $tireqty <= 149) {
+        $discount = 15;
+    } elseif ($tireqty >= 150) {
+        $discount = 20;
+    }
     echo "<p>Incluindo o imposto de R$" . number_format($totalamount, 2) . "</p>";
+    echo "<p>Desconto: $discount%</p>";
+    $totalamount = $totalamount * (1 - $discount / 100);
+    echo "<p>Valor total: R$" . number_format($totalamount, 2) . "</p>";
     echo "<p>Endereço de entrega: $adress</p>";
 
     ?>
