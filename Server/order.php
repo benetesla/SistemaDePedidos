@@ -7,7 +7,7 @@
 
 <body>
     <h1>Sistema de Pedidos</h1>
-    <h2>Seu pedido foi processado</h2>
+ 
     <?php
     echo "<div class='container'>";
     if (empty($_POST['tireqty']) && empty($_POST['oilqty']) && empty($_POST['sparkqty'])) {
