@@ -9,6 +9,7 @@
     <h1>Sistema de Pedidos</h1>
     <h2>Seu pedido foi processado</h2>
     <?php
+    echo "<div class='container'>";
     if (empty($_POST['tireqty']) && empty($_POST['oilqty']) && empty($_POST['sparkqty'])) {
         echo "<p>Você não selecionou nenhum item.</p>";
         exit;
@@ -23,7 +24,7 @@
     $sparkqty = $_POST['sparkqty'];
     $adress = $_POST['adress'];
     $find = $_POST['find'];
-    
+
     $totalqty = 0;
     $totalqty = $tireqty + $oilqty + $sparkqty;
     echo "<p>Itens pedidos: $totalqty</p>";
@@ -78,7 +79,7 @@ echo "<p> Voce encontrou a loja por: </p>";
 
 
     echo "<p>Endereço de entrega: $adress</p>";
-
+    echo "</div>";
     ?>
 </body>
 
