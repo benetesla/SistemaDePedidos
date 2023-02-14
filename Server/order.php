@@ -49,7 +49,12 @@
     } elseif ($tireqty >= 150) {
         $discount = 20;
     }
-   echo "<p> Voce encontrou a loja por: </p>";
+   
+    echo "<p>Incluindo o imposto de R$" . number_format($totalamount, 2) . "</p>";
+    echo "<p>Desconto: $discount%</p>";
+    $totalamount = $totalamount * (1 - $discount / 100);
+    echo "<p>Valor total: R$" . number_format($totalamount, 2) . "</p>";
+    echo "<p> Voce encontrou a loja por: </p>";
     switch ($find) {
         case "a":
             echo "<p>
@@ -72,10 +77,6 @@
             </p>";
             break;
     }
-    echo "<p>Incluindo o imposto de R$" . number_format($totalamount, 2) . "</p>";
-    echo "<p>Desconto: $discount%</p>";
-    $totalamount = $totalamount * (1 - $discount / 100);
-    echo "<p>Valor total: R$" . number_format($totalamount, 2) . "</p>";
     echo "<p>Endereço de entrega: $adress</p>";
     echo "</div>";
     ?>
