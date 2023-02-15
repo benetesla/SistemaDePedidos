@@ -9,3 +9,10 @@ background: radial-gradient(circle, rgba(166,180,58,1) 16%, rgba(223,253,29,1) 4
     color: #FFD700;
     padding: 5% 0%;
 }
+#cart-item{
+    text-align: center;
+    padding: 0 0.9rem 0.1rem 0.9rem;
+    border-radius: 3rem;
+    color: #FFD700;
+    background-color: #FFD700;
+}
