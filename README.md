@@ -9,7 +9,7 @@ O Frontend desta aplicação foi construido inteiramente com o framework css, bo
 
 # Backend
 O nosso backend é construído inteiramente com php, toda a persistência de dados tudo com php.
-Database:
+# Database:
 O banco de dados utilizado nesta aplicação foi o banco de dados relacional MYSQL.
 
 
