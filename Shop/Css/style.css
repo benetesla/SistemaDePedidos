@@ -16,3 +16,7 @@ background: radial-gradient(circle, rgba(166,180,58,1) 16%, rgba(223,253,29,1) 4
     color: #FFD700;
     background-color: #FFD700;
 }
+.shopping-cart {
+   padding: 3% 0;
+   margin: 0 auto;
+}

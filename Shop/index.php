@@ -5,21 +5,24 @@ require_once("File/component.php");
 require_once("File/CreateDb.php");
 $database = new CreateDb("Productdb", "Producttb");
 
-if(isset($_POST['add'])){
+if (isset($_POST['add'])) {
     //print_r($_POST['product_id']);
-    if(isset($_SESSION['cart'])){
+    if (isset($_SESSION['cart'])) {
         $item_array_id = array_column($_SESSION['cart'], "product_id");
-        if(in_array($_POST['product_id'], $item_array_id)){
+        if (in_array(
+            $_POST['product_id'],
+            $item_array_id
+        )) {
             echo "<script>alert('Produto Adicionado no carrinho!')</script>";
             echo "<script>window.location = 'index.php'</script>";
-        }else{
+        } else {
             $count = count($_SESSION['cart']);
             $item_array = array(
                 'product_id' => $_POST['product_id']
             );
             $_SESSION['cart'][$count] = $item_array;
         }
-    }else{
+    } else {
         $item_array = array(
             'product_id' => $_POST['product_id']
         );
@@ -27,7 +30,6 @@ if(isset($_POST['add'])){
         $_SESSION['cart'][0] = $item_array;
         print_r($_SESSION['cart']);
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -51,7 +53,12 @@ if(isset($_POST['add'])){
             <?php
             $result = $database->getData();
             while ($row = mysqli_fetch_assoc($result)) {
-                component($row['product_name'], $row['product_price'], $row['product_image'], $row['id']);
+                component(
+                    $row['product_name'],
+                    $row['product_price'],
+                    $row['product_image'],
+                    $row['id']
+                );
             }
             ?>
         </div>
