@@ -3,7 +3,6 @@ require_once("File/component.php");
 require_once("File/CreateDb.php");
 $database = new CreateDb("Productdb", "Producttb");
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,10 +21,10 @@ $database = new CreateDb("Productdb", "Producttb");
     <div class="container">
         <div class="row text-center py-5">
             <?php
-            component("Street Rims", "R$170", "./upload/Produt2.jpg", 1);
-            component("Street Rims2", "R$190", "./upload/Produt4.jpg", 2);
-            component("Street Rims3", "R$180", "./upload/Produt3.jpg", 3);
-            component("Street Rims4", "R$197", "./upload/Produt2.jpg", 4);
+            $result = $database->getData();
+            while ($row = mysqli_fetch_assoc($result)) {
+                component($row['product_name'], $row['product_price'], $row['product_image'], $row['id']);
+            }
             ?>
         </div>
 
